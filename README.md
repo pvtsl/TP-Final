@@ -56,9 +56,12 @@
      
 
     git clone https://github.com/pvtsl/TP-Final.git
-cd TP-Final/TP-Final
-git checkout main
-cp index.html /var/lib/docker/volumes/mi_volumen/_data/ 
+
+    cd TP-Final/TP-Final
+
+    git checkout main
+
+    cp index.html /var/lib/docker/volumes/mi_volumen/_data/ 
 
      
 
@@ -66,7 +69,7 @@ cp index.html /var/lib/docker/volumes/mi_volumen/_data/
      
 ## Configuración del Proxy Reverso Nginx ##
 
-- Añadir la siguiente configuración al servidor proxy reverso (Nginx):
+Añadir la siguiente configuración al servidor proxy reverso (Nginx):
 
     
     server {
