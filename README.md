@@ -1,240 +1,45 @@
 ## TP-Final - Infraestructura de Servidores ## 
 
-## App Apache ##   
+## App Apache2 ##   
 
-## Dockerfile para la creación y despliegue de la aplicación Apache ## 
+## README.MD para la formatear y montar un volumen en Docker, lanzar Apache2 y configurar un servidor Nginx ## 
 
  
-1- Crear un Dockerfile. Debe contener lo siguiente: 
+
+## Formatear y montar un volumen a en un directorio a elección ## 
+
+ Para crear y montar un volumen en un directorio, coloca el siguiente comando:
+
+Docker volumen create mi_volumen
 
   
 
-     
+## Para poder lanzar un contenedor con la imagen Ubuntu/Apache2 y montar el directorio /var/www/HTML con el directorio asociado al volumen creado, coloca el siguiente comando ##
 
-    FROM ubuntu 
+docker run -d -p 8080:80 -v mi_volumen:/var/www/html --name app-apache ubuntu/apache2
 
-  
 
-    RUN apt update && apt install apache2 git -y 
 
-  
+## Desplegar el contenedor con Docker Compose: ##
 
-    COPY index.html /var/www/html/index.html 
+docker-compose up -d 
 
-  
 
-    EXPOSE 80 
 
-  
+## Para clonar el repositorio y copiar el fichero index.html de la rama main al punto de montaje del contenedor, sigue estos pasos: ##
 
-    CMD ["apachectl", "-D", "FOREGROUND"] 
 
-     
+git clone https://github.com/pvtsl/TP-Final.git
+cd TP-Final/TP-Final
+git checkout main
+cp index.html /var/lib/docker/volumes/mi_volumen/_data/
 
-  
 
-2- Crear el archivo index.html: 
 
-  
-
-     
-
-    <!DOCTYPE html> 
-
-    <html lang="en"> 
-
-    <head> 
-
-        <meta charset="UTF-8"> 
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-
-        <title>My Apache App</title> 
-
-    </head> 
-
-    <body> 
-
-        <h1>Trabajo Practico final Infraestructura de Servidores - Istea</h1> 
-
-    </body> 
-
-    </html> 
-
-     
-
-  
-
---- 
-
-  
-
-## Gestión de ramas con Git ## 
-
-  
-
-3- Añadir cambios y realizar un commit: 
-
-  
-
-     
-
-    git add . 
-
-    git commit -m "update" 
-
-    git push 
-
-     
-
-  
-
-4- Crear y cambiar a una nueva branch,Developer: 
-
-  
-
-     
-
-    git checkout -b developer 
-
-     
-
-  
-
-5- Revisar las branches que existen en el repositorio: 
-
-  
-
-     
-
-    git branch 
-
-     
-
-  
-
-6- Subir la branch developer al repositorio: 
-
-  
-
-     
-
-    git push origin developer 
-
-     
-
-  
-
---- 
-
-  
-
-## Clonar el repositorio ##
-
-  
-
-7- Clonar el repositorio: 
-
-  
-
-     
-
-    git clone https://github.com/pvtsl/TP-Final.git 
-
-     
-
-  
-
-8- Acceder al directorio del proyecto: 
-
-  
-
-     
-
-    cd TP-Final/TP-Final 
-
-     
-
-  
-
---- 
-
-  
-
-## Crear la imagen Docker ## 
-
-  
-
-9- Crear la imagen Docker con comando build: 
-
-  
-
-     
-
-    docker build -t app-apache-img . 
-
-     
-
-   
-
---- 
-
-  
-
-## Despliegue del contenedor ##
-
-  
-
-10- Desplegar el contenedor utilizando comando run: 
-
-  
-
-     
-
-    docker run -d -p 8000:80 --name app-apache app-apache-img 
-
-     
-
-  
-
-11- Desplegar el contenedor utilizando Docker Compose: 
-
-  
-
-    Crear el archivo docker-compose.yaml con el siguiente contenido: 
-
-  
-
-     
-
-    version: '3' 
-
-    services: 
-
-      web: 
-
-        image: app-apache-img 
-
-        ports: 
-
-          - "8000:80" 
-
-     
-
-  
-
-12- Desplegar el contenedor con Docker Compose: 
-
-  
-
-     
-
-    docker-compose up -d 
-
-     
 ## Configuración del Proxy Reverso Nginx ##
 
-13- Añadir la siguiente configuración al servidor proxy reverso (Nginx):
+
+Añadir la siguiente configuración al servidor proxy reverso (Nginx):
 
     
     server {
@@ -247,8 +52,9 @@
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header X-Forwarded-Proto $scheme;
             proxy_pass http://ip_docker_server:8080;
-        }
-    }
-    
 
----
+     }
+
+    }
+
+--- 
