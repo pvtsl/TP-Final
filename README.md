@@ -139,7 +139,7 @@ Clonar el repositorio:
 
      
 
-    git clone https://github.com/CharlosBrother/Parcial.git 
+    git clone https://github.com/pvtsl/TP-Final.git 
 
      
 
@@ -151,7 +151,7 @@ Acceder al directorio del proyecto:
 
      
 
-    cd Parcial 
+    cd TP-Final 
 
      
 
