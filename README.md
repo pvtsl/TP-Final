@@ -1,11 +1,11 @@
-# TP-Final
+## TP-Final - Infraestructura de Servidores ## 
 
 ## App Apache ##   
 
-### Dockerfile para la creación y despliegue de la aplicación Apache 
+## Dockerfile para la creación y despliegue de la aplicación Apache ## 
 
  
-Crear un Dockerfile con el siguiente contenido: 
+1- Crear un Dockerfile. Debe contener lo siguiente: 
 
   
 
@@ -33,7 +33,7 @@ Crear un Dockerfile con el siguiente contenido:
 
   
 
-Crear el archivo index.html: 
+2- Crear el archivo index.html: 
 
   
 
@@ -55,7 +55,7 @@ Crear el archivo index.html:
 
     <body> 
 
-        <h1>Welcome to My Apache App</h1> 
+        <h1>Trabajo Practico final Infraestructura de Servidores - Istea</h1> 
 
     </body> 
 
@@ -69,11 +69,11 @@ Crear el archivo index.html:
 
   
 
-### Gestión de ramas con Git 
+## Gestión de ramas con Git ## 
 
   
 
-Añadir cambios y realizar un commit: 
+3- Añadir cambios y realizar un commit: 
 
   
 
@@ -89,7 +89,7 @@ Añadir cambios y realizar un commit:
 
   
 
-Crear y cambiar a una nueva rama developer: 
+4- Crear y cambiar a una nueva branch,Developer: 
 
   
 
@@ -101,7 +101,7 @@ Crear y cambiar a una nueva rama developer:
 
   
 
-Verificar las ramas existentes: 
+5- Revisar las branches que existen en el repositorio: 
 
   
 
@@ -113,7 +113,7 @@ Verificar las ramas existentes:
 
   
 
-Subir la rama developer al repositorio remoto: 
+6- Subir la branch developer al repositorio: 
 
   
 
@@ -129,11 +129,11 @@ Subir la rama developer al repositorio remoto:
 
   
 
-### Clonar el repositorio 
+## Clonar el repositorio ##
 
   
 
-Clonar el repositorio: 
+7- Clonar el repositorio: 
 
   
 
@@ -145,13 +145,13 @@ Clonar el repositorio:
 
   
 
-Acceder al directorio del proyecto: 
+8- Acceder al directorio del proyecto: 
 
   
 
      
 
-    cd TP-Final 
+    cd TP-Final/TP-Final 
 
      
 
@@ -161,11 +161,11 @@ Acceder al directorio del proyecto:
 
   
 
-### Crear la imagen Docker 
+## Crear la imagen Docker ## 
 
   
 
-Construir la imagen Docker: 
+9- Crear la imagen Docker con comando build: 
 
   
 
@@ -181,11 +181,11 @@ Construir la imagen Docker:
 
   
 
-### Despliegue del contenedor 
+## Despliegue del contenedor ##
 
   
 
-Desplegar el contenedor utilizando comandos Docker: 
+10- Desplegar el contenedor utilizando comando run: 
 
   
 
@@ -197,7 +197,7 @@ Desplegar el contenedor utilizando comandos Docker:
 
   
 
-Desplegar el contenedor utilizando Docker Compose: 
+11- Desplegar el contenedor utilizando Docker Compose: 
 
   
 
@@ -223,7 +223,7 @@ Desplegar el contenedor utilizando Docker Compose:
 
   
 
-    Desplegar el contenedor con Docker Compose: 
+12- Desplegar el contenedor con Docker Compose: 
 
   
 
@@ -232,9 +232,9 @@ Desplegar el contenedor utilizando Docker Compose:
     docker-compose up -d 
 
      
-### Configuración del Proxy Reverso
+## Configuración del Proxy Reverso Nginx ##
 
-1. Añadir la siguiente configuración al servidor proxy reverso (Nginx):
+13- Añadir la siguiente configuración al servidor proxy reverso (Nginx):
 
     
     server {
