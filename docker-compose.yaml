@@ -1,0 +1,7 @@
+version: '3'
+services:
+  web:
+    image: appapache-img
+    ports:
+      - "8000:80"
+
